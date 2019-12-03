@@ -125,11 +125,36 @@ The inventory is formatted like this:
   { name: 'blueberries', available: false }
 ]
 
+describe('Testing challenge 6', () => {
+  const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+
+  test('It should only add the available items to the list', () => {
+    expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
+    expect(createList(inventory).length).toStrictEqual(3);
+  });
+});
+
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
-  // Solution code here...
+// const createList = (inventory) => {
+//   const availableItems = [];
+//   inventory.forEach( (i) => {
+//     if (i.available === true) {
+//       availableItems.push(i.name);
+//     }
+//   })
+//   return availableItems;
+// };
+
+const createList = (inventory) => {
+  const availableItems = [];
+  inventory.forEach( (i) => {
+    if (i.available === true){
+      availableItems.push(i.name)
+    }
+  })
+  return availableItems;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,10 +169,34 @@ Iterate over the array using forEach to determine the output based on several ru
   - Otherwise, add the number to the output array.
 
 Return the resulting output array.
+
+---
+describe('Testing challenge 7', () => {
+  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+  test('It should print out messages or numbers', () => {
+    expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+    expect(fizzbuzz(inputs).length).toStrictEqual(16);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let output = [];
+  arr.forEach( inputs => {
+    if((inputs % 3 === 0) && (inputs % 5 === 0)){
+      output.push('Fizz Buzz');
+    }
+    else if(inputs % 5 === 0){
+      output.push('Buzz');
+    }
+    else if( inputs % 3  === 0){
+      output.push('Fizz')
+    }
+    else{ output.push(inputs);
+    }
+  })
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
