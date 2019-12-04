@@ -24,10 +24,19 @@ For example:
 const a = [1, 2, 3];
 appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
+
+describe('Testing challenge 2', () => {
+  test('It should append by modifying the oiginal', () => {
+    const a = ['Yes', 'it', 'is'];
+    appendFirstToLast(a);
+
+    expect(a).toStrictEqual(['Yes', 'it', 'is', 'Yes']);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
+  arr.splice(3, 0, arr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
