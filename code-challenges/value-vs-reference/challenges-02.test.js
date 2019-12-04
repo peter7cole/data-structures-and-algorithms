@@ -82,7 +82,7 @@ const people = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }];
 setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true\
 
------------------
+-----------------------------------------------------
 describe('Testing challenge 4', () => {
   test('It should add a property to every object in an array', () => {
     const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
@@ -114,11 +114,23 @@ const a = [1, 2]; NOTE: If you assign an array to a `const`, you can't re-assign
 const b = [3, 4];
 append(a, b);
 console.log(a) prints [1, 2, 3, 4]
+
+------------------------------------------------------------
+describe('Testing challenge 5', () => {
+  test('It should append the second array to the first', () => {
+    const a = [1, 2, 3, 4];
+    const b = [5, 6, 7, 8];
+    append(a, b);
+
+    expect(a).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  // Solution code here...
-
+  arr2.forEach( (i) => {
+    arr1.push(i);
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
