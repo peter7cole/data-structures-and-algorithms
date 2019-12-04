@@ -80,11 +80,25 @@ The function should modify the object in place. Do not use a return statement.
 For example:
 const people = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }];
 setStatusAsAuthor(people);
-console.log(people[1].isAuthor) prints true
+console.log(people[1].isAuthor) prints true\
+
+-----------------
+describe('Testing challenge 4', () => {
+  test('It should add a property to every object in an array', () => {
+    const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
+    setStatusAsAuthor(a);
+
+    expect(a[0].isAuthor).toStrictEqual(true);
+    expect(a[1].isAuthor).toStrictEqual(true);
+    expect(a[2].isAuthor).toStrictEqual(true);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.forEach( (i) => {
+    i.isAuthor = true;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
