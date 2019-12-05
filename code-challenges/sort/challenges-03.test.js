@@ -67,10 +67,25 @@ const alphabetize = (arr) => {
 CHALLENGE 3
 
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
+
+-------------------------------------------------------
+describe('Testing challenge 3', () => {
+  test('It should sort strings by length', () => {
+    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+    expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
+    expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
+    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
+    expect(sortByLength(['a'])).toStrictEqual(['a']);
+    expect(sortByLength([])).toStrictEqual([]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    return a.length - b.length;
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
