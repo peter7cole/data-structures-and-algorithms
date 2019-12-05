@@ -53,11 +53,11 @@ describe('Testing challenge 2', () => {
 const alphabetize = (arr) => {
   arr.sort((a, b) => {
     if (a > b) {
-      return 1
+      return 1;
     } else if (a < b) {
-      return -1
+      return -1;
     } else {
-      return 0
+      return 0;
     }
   });
   return arr;
@@ -84,7 +84,7 @@ describe('Testing challenge 3', () => {
 const sortByLength = (arr) => {
   arr.sort((a, b) => {
     return a.length - b.length;
-  })
+  });
   return arr;
 };
 
@@ -101,11 +101,11 @@ const alphabetizeBetter = (arr) => {
     a = a.toLowerCase();
     b = b.toLowerCase();
     if (a > b) {
-      return 1
+      return 1;
     } else if (a < b) {
-      return -1
+      return -1;
     } else {
-      return 0
+      return 0;
     }
   });
   return arr;
@@ -127,11 +127,11 @@ Here is an example of the input:
 const sortByPrice = (arr) => {
   arr.sort((a, b) => {
     if (a.price > b.price) {
-      return 1
+      return 1;
     } else if (a.price < b.price) {
-      return -1
+      return -1;
     } else {
-      return 0
+      return 0;
     }
   })
   return arr;
