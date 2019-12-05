@@ -19,7 +19,16 @@ describe('Testing challenge 1', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if (a > b) {
+      return -1;
+    } else if (a < b) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,10 +39,28 @@ Write a function named alphabetize that takes in an array of strings and returns
 In this alphabetization, capital letters come before lower case letters.
 
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
+
+--------------------------------------------------------------------------------------------
+describe('Testing challenge 2', () => {
+  test('It should sort strings alphabetically', () => {
+    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
+    expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
+    expect(alphabetize([])).toStrictEqual([]);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  arr.sort((a, b) => {
+    if(a > b){
+      return 1
+    } else if(a < b){
+      return -1
+    } else {
+      return 0
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
