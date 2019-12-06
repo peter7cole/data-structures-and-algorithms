@@ -70,7 +70,7 @@ CHALLENGE 3
 
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 
-------------------------------------------------
+----------------------------------------------------------------------------------
 describe('Testing challenge 3', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
@@ -89,7 +89,8 @@ describe('Testing challenge 3', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex = /[[:<:]][A-J]\w*/gmi;
+  return arr.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
