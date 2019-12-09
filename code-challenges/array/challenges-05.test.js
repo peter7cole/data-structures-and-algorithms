@@ -44,6 +44,13 @@ Write a function named listFoods that takes in the recipe and returns a new arra
 Use slice for this function, maybe more than once. The Array.indexOf() method may also be helpful.
 
 Do not use split for this function.
+
+------------------------------------------------------------------------------
+
+looking for = 'Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+
+length of 11
+
 ------------------------------------------------------------------------------------------------ */
 
 const gruffaloCrumble = {
@@ -74,10 +81,14 @@ const gruffaloCrumble = {
   ]
 };
 
-
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let ingredientsArr = recipe.ingredients;
+  ingredientsArr.forEach( (ingredientString) => {
+    let indexOf = ingredientString.indexOf(' ', 3);
+    let slice = ingredientString.slice(indexOf + 1, ingredientString.length);
+    result.push(slice);
+  });
   return result;
 };
 
@@ -91,7 +102,13 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let ingredientsArr = recipe.ingredients;
+  ingredientsArr.forEach( (ingredientString) => {
+    let split = ingredientString.split(' '); // 1,gallaon,fresh,water
+    let ingredientName = split.slice(2);
+    ingredientName = ingredientName.join(' ');
+    result.push(ingredientName);
+  });
   return result;
 };
 
