@@ -104,7 +104,7 @@ const splitFoods = (recipe) => {
   let result = [];
   let ingredientsArr = recipe.ingredients;
   ingredientsArr.forEach( (ingredientString) => {
-    let split = ingredientString.split(' '); // 1,gallaon,fresh,water
+    let split = ingredientString.split(' ');
     let ingredientName = split.slice(2);
     ingredientName = ingredientName.join(' ');
     result.push(ingredientName);
@@ -120,11 +120,27 @@ Use the same recipe from Challenge 3, above.
 Write a function named stepAction that takes in the recipe and extracts the action verbs from the steps. Fortunate for you, the action verbs are the first word of each action.
 
 Return a new array containing just the verbs. For example, ['Mix until evenly distributed'] returns ['Mix'].
+
+steps: [
+    'Pre-heat a large oven to 375',
+    'De-prickle the gruffalo',
+    'Sprinkle with cinnamon, sugar, flour, and nuts',
+    'Mix until evenly distributed',
+    'Grease a 3-foot x 3-foot casserole dish',
+    'Combine gruffalo compote with water to maintain moisture in the oven',
+    'Fold together remaining ingredients to make the crisp',
+    'Spread the crisp evenly over the gruffalo mixture',
+    'Bake for 12-15 hours',
+  ]
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  let stepsArr = recipe.steps;
+  stepsArr.forEach( (recipeString) => {
+    let splitArr = recipeString.split(' ');
+    result.push(splitArr[0]);
+  })
   return result;
 };
 
