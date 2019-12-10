@@ -78,7 +78,7 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  characters.forEach( entity => {
+  arr.forEach( entity => {
     houses.push(entity.house);
   })
   return houses;
@@ -97,8 +97,19 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let check = false;
+  arr.forEach(entity => {
+    if (entity.name === character) {
+      if (entity.children.length > 0) {
+        check = true;
+      }
+    }
+  });
+  if (check === true) {
+    return true;
+  } else {
+    return character, false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,7 +121,23 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  let check = false;
+  let entry = [];
+  arr.forEach(entity => {
+    if (entity.name === character) {
+      entry = Object.entries(entity);
+    }
+    entry.forEach(attributes => {
+      if (attributes[0] === 'children' && attributes[1].length > 0) {
+        check = true;
+      }
+    })
+  });
+  if (check === true) {
+    return true;
+  } else {
+    return character, false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +147,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let count = 0;
+  arr.forEach(character => {
+    count++; // for character themseleves
+    count += character.children.length;
+    if (character.spouse !== null) {
+      count++;
+    }
+  });
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
