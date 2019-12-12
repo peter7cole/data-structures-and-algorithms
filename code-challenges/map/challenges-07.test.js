@@ -55,7 +55,7 @@ arr = ['C', 'o', 'd', 'e', '3', '0', '1']
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  
+  return arr.map(letters => letters.charCodeAt());
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  return arr.map(num => isNaN(num) ? 'N/A' : (num%2 ? 'odd' : 'even'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,8 +114,14 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
+// Write a function named extractAbilities that, given the array of abilities, uses map to create an array containing only the ability name.
+
+// Note: Because this function is expecting the array of abilities, it will be invoked as:
+
+// extractAbilities(snorlaxAbilities.abilities)
+
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map(pokeAtk => pokeAtk.ability.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,8 +167,19 @@ const snorlaxStats = {
   weight: 4600,
 };
 
+// Write a function named extractStats that, given an array of stats, uses map to return an array of objects containing the stat name and the total.
+
+// The total should be the sum of the effort and the baseStat.
+
+// Here is an example of a single array element: { name: 'speed', total: 35 }
+
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(statType => {
+    let newStat = {};
+    newStat.name = statType.stat.name;
+    newStat.total = statType.effort + statType.baseStat;
+    return newStat;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
