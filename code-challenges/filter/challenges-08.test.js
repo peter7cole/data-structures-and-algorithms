@@ -9,7 +9,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  return arr.filter(int => int%2 ? int : undefined);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,11 +22,9 @@ The callback function to filter should include or utilize a regular expression p
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  return arr.filter(str => (/[aeiou]/gmi).test(str));
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
