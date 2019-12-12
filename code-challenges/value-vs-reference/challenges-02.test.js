@@ -39,7 +39,7 @@ describe('Testing challenge 2', () => {
 
 const appendFirstToLast = (arr) => {
   arr.splice(3, 0, arr[0]);
-  //arr.push(arr[0]);
+  // arr.push(arr[0]); other option
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +98,7 @@ describe('Testing challenge 4', () => {
 
 const setStatusAsAuthor = (people) => {
   people.forEach( (i) => {
-    i.isAuthor = true;
+    i.isAuthor;
   });
 };
 
