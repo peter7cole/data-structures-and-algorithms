@@ -9,7 +9,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  return arr.filter(int => int%2 ? int : undefined);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,11 +22,9 @@ The callback function to filter should include or utilize a regular expression p
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  return arr.filter(str => (/[aeiou]/gmi).test(str));
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -37,7 +35,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  return arr.filter(value => !forbiddenValues.includes(value));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,8 +77,15 @@ const snorlaxData = {
   weight: 4600,
 };
 
+/* Write a function that uses filter to return an array containing all stats with a baseStat greater than the integer.
+
+        arr = snorlaxData
+minBaseStat = integer
+
+For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing the 'special-defense' and 'special-attack' objects. */
+
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+  return arr.filter(statType => statType.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +97,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  return (arr.filter(statType => statType.baseStat > minBaseStat)).map(statType => statType.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,7 +150,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(character => !character.children);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,7 +162,7 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  return (arr.filter(value => typeof value === 'number')).map(num => num%2 ? 'odd' : 'even');
 };
 
 /* ------------------------------------------------------------------------------------------------
