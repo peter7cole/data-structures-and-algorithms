@@ -35,7 +35,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  return arr.filter(value => !forbiddenValues.includes(value));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,8 +77,15 @@ const snorlaxData = {
   weight: 4600,
 };
 
+/* Write a function that uses filter to return an array containing all stats with a baseStat greater than the integer.
+
+        arr = snorlaxData
+minBaseStat = integer
+
+For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing the 'special-defense' and 'special-attack' objects. */
+
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+  return arr.filter(statType => statType.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,7 +97,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  return (arr.filter(statType => statType.baseStat > minBaseStat)).map(statType => statType.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
