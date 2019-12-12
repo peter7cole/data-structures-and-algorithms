@@ -12,9 +12,9 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 
 const forLoopTwoToThe = (arr) => {
   const newArr = [];
-  arr.forEach(num => {
-    newArr.push(Math.pow(2, num));
-  });
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(Math.pow(2, arr[i]));
+  }
   return newArr;
 };
 
@@ -25,7 +25,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach(num => {
+    newArr.push(Math.pow(2, num));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +39,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  return arr.map(num => Math.pow(2, num));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,10 +50,12 @@ Write a function named charCode that, given an array of letters as an input, use
 Read the MDN documentation on String.charCodeAt() if necessary.
 
 For example: charCode(['h','i']) returns [104, 105].
+
+arr = ['C', 'o', 'd', 'e', '3', '0', '1']
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  return arr.map(letters => letters.charCodeAt());
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,7 +69,7 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  return arr.map(num => isNaN(num) ? 'N/A' : (num%2 ? 'odd' : 'even'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,8 +114,14 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
+// Write a function named extractAbilities that, given the array of abilities, uses map to create an array containing only the ability name.
+
+// Note: Because this function is expecting the array of abilities, it will be invoked as:
+
+// extractAbilities(snorlaxAbilities.abilities)
+
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map(pokeAtk => pokeAtk.ability.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,8 +167,19 @@ const snorlaxStats = {
   weight: 4600,
 };
 
+// Write a function named extractStats that, given an array of stats, uses map to return an array of objects containing the stat name and the total.
+
+// The total should be the sum of the effort and the baseStat.
+
+// Here is an example of a single array element: { name: 'speed', total: 35 }
+
 const extractStats = (arr) => {
-  // Solution code here...
+  return arr.map(statType => {
+    let newStat = {};
+    newStat.name = statType.stat.name;
+    newStat.total = statType.effort + statType.baseStat;
+    return newStat;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
