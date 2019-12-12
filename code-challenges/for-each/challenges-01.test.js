@@ -190,7 +190,7 @@ const fizzbuzz = (arr) => {
     else if(inputs % 5 === 0){
       output.push('Buzz');
     }
-    else if( inputs % 3  === 0){
+    else if( inputs % 3 === 0){
       output.push('Fizz')
     }
     else{ output.push(inputs);
