@@ -9,7 +9,10 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce(answerSoFar => {
+    answerSoFar++;
+    return answerSoFar;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,8 +71,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
+// Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
+
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((namesArr, character) => {
+    namesArr.push(character.name);
+    return namesArr;
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +89,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  return ((str.split('')).reduce((flipped, char) => {
+    flipped.splice(0, 0, char);
+    return flipped;
+  }, [])).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,7 +145,10 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((childCounter, people) => {
+    people.children ? childCounter += people.children.length : undefined;
+    return childCounter;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +160,10 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  return arr.reduce((average, num) => {
+    average += num;
+    return average;
+  }, 0) / arr.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,8 +184,20 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((count, element) => {
+    if (typeof element === 'number') {
+      if (isPrime(element)) {
+        count++;
+      }
+    }
+    return count;
+  }, 0);
 };
+
+// typeof element === 'number' ?
+//       isPrime(element) ? count++ : undefined
+//       : undefined;
+//     return count;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -210,7 +239,10 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((match, obj) => {
+    obj.stat.name === statName ? match = obj : undefined;
+    return match;
+  }, null);
 };
 
 /* ------------------------------------------------------------------------------------------------
