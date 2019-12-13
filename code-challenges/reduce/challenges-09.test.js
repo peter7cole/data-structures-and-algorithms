@@ -9,7 +9,10 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce(answerSoFar => {
+    answerSoFar++;
+    return answerSoFar;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,8 +71,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
+// Write a function named returnNames that, given the Star Wars data, below, uses reduce to return an array containing the names of the characters.
+
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((namesArr, character) => {
+    namesArr.push(character.name);
+    return namesArr;
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +89,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  // let strArr = str.split('');
+  return ((str.split('')).reduce((flipped, char) => {
+    flipped.splice(0, 0, char);
+    return flipped;
+  }, [])).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
