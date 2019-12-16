@@ -11,16 +11,6 @@ Note: You might need to use the same method more than once. filter(soFar, val, i
 For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
-// const count = (target, input) => {
-
-//   let totalArr = input[].map(test1 => test1 ? test1 : undefined);
-
-//   let counter = (totalArr.filter(test2 => test2 === target ? test : undefined)).length;
-
-//   return counter;
-
-// };
-
 const count = (target, input) => {
   let counter = 0;
   input.forEach(arr => counter += (arr.filter(num => num === target)).length);
