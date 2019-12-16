@@ -6,13 +6,15 @@ CHALLENGE 1
 
 Write a function named count that, given an integer and an array of arrays, uses either filter, map, or reduce to count the amount of times the integer is present in the array of arrays.
 
-Note: You might need to use the same method more than once.
+Note: You might need to use the same method more than once. filter(soFar, val, idx)
 
 For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  let counter = 0;
+  input.forEach(arr => counter += (arr.filter(num => num === target)).length);
+  return counter;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -26,7 +28,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  let counter = 0;
+  input.forEach(arr => {
+    let subTotal = arr.reduce((sumSoFar, element) => {
+      sumSoFar += element;
+      return sumSoFar;
+    }, 0);
+    counter += subTotal;
+  });
+  return counter;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,7 +52,15 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  let div5 = [];
+  let power2 = [];
+  let ans = [];
+  input.forEach(arr => {
+    div5 = arr.filter(num => (typeof num === 'number') && (num%5 === 0));
+    power2 = div5.map(num => Math.pow(2, num));
+    ans.push(power2);
+  });
+  return ans;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,7 +126,7 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return (data.filter(character => character.gender === 'male' || character.gender === 'female')).map(character => character.name).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +136,9 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  return (data.reduce((shortSoFar, character) => {
+    return parseInt(shortSoFar.height, 10) > parseInt(character.height, 10) ? shortSoFar = character : shortSoFar;
+  }, data[0])).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
