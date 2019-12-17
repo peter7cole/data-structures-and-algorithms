@@ -9,7 +9,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  let regex = /^\d{4}$/;
+  return regex.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let regex = /^[A-z]+(\.[A-z]+)?@[A-z]+\.(net|com|org)$/gmi;
+  return regex.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,23 +40,33 @@ CHALLENGE 3
 Write a function named validatePhoneNumber that accepts a phone number and determines if it is valid.
 
 Acceptable formats include:
- - (555) 555-5555
- - (555)555 5555
- - 555 555-5555
- - 555-5555555
- - 555-555 5555
- - 555-555-5555
- - 555 555 5555
- - 555555-5555
- - 5555555555
+ - (555) 555-5555 c
+ - (555)555 5555 c
 
+ - 555 555-5555 c
+ - 555 555 5555 c
+
+ - 555-555-5555 c
+ - 555-555 5555 c
+ 
+ - 555-555-5555 c
+ - 555-555 5555 c
+ 
+ - 555555-5555 f
+ - 555-5555555 f
 Your function should include a single regular expression pattern that matches any of these formats.
 
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  // ^\(\d{3}\)((\s\d{3}-\d{4}|\d{3}\s\d{4})$)
+  // ^\d{3}\s\d{3}(-|\s)\d{4}$
+  // ^\d{3}-\d{3}(-|\s)\d{4}$
+  // ^\d{3}(-|\s)?\d{7}$
+
+  let regex = /(^\(\d{3}\)((\s\d{3}-\d{4}|\d{3}\s\d{4})$))|(^\d{3}\s\d{3}(-|\s)\d{4}$)|(^\d{3}-\d{3}(-|\s)\d{4}$)|(^\d{3}(-|\s)?\d{7}$)/;
+  return regex.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
