@@ -9,7 +9,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  // Solution code here...
+  return arr.map(str => {
+    return (str.slice(0,1)).toUpperCase() + str.slice(1, str.length);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +86,19 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  let luke = parseInt(starWarsData[0].mass);
+  let result = [];
+  arr.forEach(character => {
+    let weight = parseInt(character.mass);
+    if (typeof weight === 'number') {
+      if (weight > luke) {
+        result.push(character.name);
+      }
+    } else {
+      return 'undefined mass';
+    }
+  });
+  return result.join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +116,9 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  return property === 'name' ?
+    arr.sort((a, b) => a[property].localeCompare(b[property])) :
+    arr.sort((a, b) => a[property] - b[property]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,9 +133,20 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
+
 const isSecure = (url) => {
-// Solution code here...
+  return url.substr(0, 8) === 'https://';
 };
+
+/*
+This one to check the postfix as well
+
+const isSecure = (url) => {
+  let prefix = url.substr(0, 8);
+  let postfix = url.substr(url.length - 4, url.length);
+  return prefix === 'https://' && (postfix === '.net' || postfix === '.com' || postfix === '.org');
+};
+*/
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
