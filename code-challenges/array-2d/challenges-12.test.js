@@ -78,7 +78,13 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let treats = 0;
+  arr.forEach(store => {
+    store.items.forEach(items => {
+      items.name === 'Treats' ? treats += items.quantity : undefined;
+    })
+  });
+  return treats;
 };
 
 /* ------------------------------------------------------------------------------------------------
