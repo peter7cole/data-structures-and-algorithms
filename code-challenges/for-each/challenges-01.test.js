@@ -8,21 +8,11 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  return word.toUpperCase();
-};
+const greeting = (string) => string.toUpperCase();
 
-const speaker = (message, callback) => {
-  return callback(message);
-};
+const speaker = (string, callback) => callback(string);
 
-// take the message and pass it through the callback
-
-// describe('Testing challenge 1', () => {
-//   test('It should return the message with all uppercase characters', () => {
-//     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
-//   });
-// });
+// These are called implicit returns
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -40,12 +30,10 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr, value) => {
-  arr.push(value);
-};
+const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  for(let i = 0; i < times; i++) {
+  for (let i = 0; i < times; i++) {
     callback(arr, num);
   }
   return arr;
@@ -63,14 +51,10 @@ Then, write a function named removeElements that takes in an array and a callbac
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const removeOne = (num, arr) => {
-  if (num%3 === 2) {
-    arr.pop();
-  }
-};
+const removeOne = (num, arr) => num%3 === 2 ? arr.pop() : undefined;
 
 const removeElements = (arr, callback) => {
-  for(let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     callback(arr[i], arr);
   }
   return arr;
@@ -83,9 +67,7 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  arr.forEach(num => {
-    removeOne(num, arr);
-  })
+  arr.forEach(num => callback(num, arr));
   return arr;
 };
 
@@ -102,12 +84,10 @@ This anonymous function should accept up to three arguments: the element, the in
 const removeWithAnon = (arr) => {
   arr.forEach(num => {
     let number = function() {
-      if (num%3 === 2) {
-        arr.pop();
-      }
+      num%3 === 2 ? arr.pop() : undefined;
     }
     number(arr);
-  })
+  });
   return arr;
 };
 
@@ -137,23 +117,9 @@ describe('Testing challenge 6', () => {
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-// const createList = (inventory) => {
-//   const availableItems = [];
-//   inventory.forEach( (i) => {
-//     if (i.available === true) {
-//       availableItems.push(i.name);
-//     }
-//   })
-//   return availableItems;
-// };
-
 const createList = (inventory) => {
   const availableItems = [];
-  inventory.forEach( (i) => {
-    if (i.available === true){
-      availableItems.push(i.name)
-    }
-  })
+  inventory.forEach(item => item.available === true ? availableItems.push(item.name) : undefined);
   return availableItems;
 };
 
@@ -184,18 +150,19 @@ describe('Testing challenge 7', () => {
 const fizzbuzz = (arr) => {
   let output = [];
   arr.forEach( inputs => {
-    if((inputs % 3 === 0) && (inputs % 5 === 0)){
+    if (inputs % 3 === 0 && inputs % 5 === 0) {
       output.push('Fizz Buzz');
     }
-    else if(inputs % 5 === 0){
+    else if (inputs % 5 === 0){
       output.push('Buzz');
     }
-    else if( inputs % 3 === 0){
+    else if ( inputs % 3 === 0){
       output.push('Fizz')
     }
-    else{ output.push(inputs);
+    else {
+      output.push(inputs);
     }
-  })
+  });
   return output;
 };
 
